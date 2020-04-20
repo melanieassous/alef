@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './RandomGenerator.css';
+import randomcolor from "randomcolor"
 
 class RandomGenerator extends Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class RandomGenerator extends Component {
       }
 
       generateRandomLetter() {
-          const totalAmountOfLetters = 26;
+        const totalAmountOfLetters = 26;
         return (String.fromCharCode( Math.floor(Math.random() * totalAmountOfLetters) + 97)).toLocaleUpperCase()
       }
 
@@ -52,7 +53,7 @@ class RandomGenerator extends Component {
       render() {
         return (
           <div className="random-elements"> 
-            <div className="random-letter">{this.state.currentLetter}</div>
+            <header className="random-letter">{this.state.currentLetter}</header>
             <div className="random-topic">{this.state.currentTopic}</div>
           </div>
         );

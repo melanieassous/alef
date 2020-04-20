@@ -26,6 +26,11 @@
 .main-ui {
   display: block;
   position: relative;
-  top: 100px;
-  left: 50%;
+  top: 50px;
+  text-align: center;
+}
+
+.main-page {
+  background: url(../images/pinkmap.jpg) no-repeat center center fixed;
+  background-size: cover;
 }
