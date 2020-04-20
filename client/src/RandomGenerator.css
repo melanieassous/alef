@@ -1,0 +1,13 @@
+ .random-elements {
+    display: block;
+  }
+  
+  .random-letter {
+    font-size: 100px;
+    padding-bottom: 25px;
+  }
+
+  .random-topic {
+    position: relative;
+    font-size: 70px;
+  }
