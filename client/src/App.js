@@ -7,23 +7,24 @@ import "./App.css"
 class App extends Component {
   constructor() {
     super()
+
+    this.state = {
+      currentTopic: ""
+    }
+
+    this.updateCurrentTopic = this.updateCurrentTopic.bind(this)
   }
 
+  updateCurrentTopic(currentTopic)  {
+    this.setState(state => ({ currentTopic: currentTopic }));
+  }
 
   render() {
-    /**const App = () => (
-        <div>
-          <Switch>
-            <Route exact path='/' component={UserInput}/>
-          </Switch>
-        </div>
-      )**/
-
     return (
-      <div class="main-page">
+      <div className="main-page">
       <div className="main-ui">
-          <RandomGenerator maxAmountOfLetters={15} intervalDuration={50}/>
-          <UserInput isTopicGenerated/>
+          <RandomGenerator maxAmountOfLetters={15} intervalDuration={50} updateCurrentTopic={this.updateCurrentTopic}/>
+          <UserInput currentTopic={this.state.currentTopic}/>
       </div>
       </div>
     );

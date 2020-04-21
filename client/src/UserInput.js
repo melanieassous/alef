@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import './UserInput.css';
 
 class UserInput extends Component {
-
-    constructor() {
+    constructor(props) {
         super() 
 
         this.state = {
-            input: ""
+            input: "",
+            currentTopic: props.currentTopic
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleClick = this.handleClick.bind(this)
@@ -18,12 +18,25 @@ class UserInput extends Component {
         this.setState({
             input: value
         })
-        console.log(this.state)
     }
 
     handleClick() {
-        // send to backend this.state.input
-        console.log(this.state.input)
+        console.log(this.props.currentTopic)
+        this.checkIfCity();
+        this.checkIfCountry();
+        //if (this.state.topic === "City")
+    }
+
+    checkIfCountry() {
+        fetch("http://localhost:5000/isCountry?countryName=" + this.state.input)
+        .then(res => res.json())
+        .then(json => console.log(json));
+    }
+
+    checkIfCity() {
+        fetch("http://localhost:5000/isCity?cityName=" + this.state.input)
+        .then(res => res.json())
+        .then(json => console.log(json));
     }
 
     render() {

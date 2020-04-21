@@ -1,19 +1,43 @@
 import React, { Component } from 'react';
 import './RandomGenerator.css';
 import randomcolor from "randomcolor"
+import UserInput from "./UserInput"
 
 class RandomGenerator extends Component {
     constructor(props) {
         super()
         this.state = {
-          currentLetter: "A",
+          currentLetter: "",
           lettersGeneratedAmount: 0,
           currentTopic: ""
         }
       }
+
+      startGame() {
+        let lettersInterval = setInterval(
+          function() {
+            if (this.state.lettersGeneratedAmount > this.props.maxAmountOfLetters) {
+              clearInterval(lettersInterval)
+              var generatedTopic = this.generateRandomTopic()
+              this.setState((prevState) => {
+                  return {
+                      currentTopic: generatedTopic
+                  }
+              })
+              this.props.updateCurrentTopic(generatedTopic);
+            }
+            else {
+              this.startLettersSwitch()
+            }
+          }.bind(this),
+          this.props.intervalDuration
+        );
+      }
     
+      //this.props.updateCurrentTopic(this.state.currentTopic);
       generateRandomTopic() {
           const topics = ["Country", "City"]
+          this.props.updateCurrentTopic(this.state.currentTopic);
           return topics[Math.floor(Math.random() * topics.length)]
       }
 
@@ -32,29 +56,17 @@ class RandomGenerator extends Component {
       }
     
       componentDidMount() {
-        let lettersInterval = setInterval(
-          function() {
-            if (this.state.lettersGeneratedAmount > this.props.maxAmountOfLetters) {
-              clearInterval(lettersInterval)
-              this.setState((prevState) => {
-                  return {
-                      currentTopic: this.generateRandomTopic()
-                  }
-              })
-            }
-            else {
-              this.startLettersSwitch()
-            }
-          }.bind(this),
-          this.props.intervalDuration
-        );
+
       }
     
       render() {
         return (
-          <div className="random-elements"> 
-            <header className="random-letter">{this.state.currentLetter}</header>
-            <div className="random-topic">{this.state.currentTopic}</div>
+          <div>
+            <button onClick={() => this.startGame()}>START</button>
+            <div className="random-elements"> 
+              <div class="letter-container"><header className="random-letter">{this.state.currentLetter}</header></div>
+              <div className="random-topic">{this.state.currentTopic}</div>
+            </div>
           </div>
         );
       }

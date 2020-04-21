@@ -6,10 +6,20 @@
   
   .random-letter {
     font-size: 100px;
+  }
+
+  .letter-container {
+    height: 100px;
+    width: 100px;
     padding-bottom: 20px;
+    background-color: antiquewhite;
+    position: relative;
+    display: inline-block;
+    border-radius: 30px;
   }
 
   .random-topic {
     position: relative;
     font-size: 70px;
   }
+

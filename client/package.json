@@ -4,6 +4,7 @@
   "private": true,
   "@std/esm": "cjs",
   "dependencies": {
+    "cors": "^2.8.5",
     "randomcolor": "^0.5.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
