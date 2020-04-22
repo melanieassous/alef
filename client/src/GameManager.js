@@ -14,7 +14,7 @@ class GameManager extends Component {
       }
 
       startGame() {
-        this.isGameStarted = true; //switch to false when loose/win??
+        this.isGameStarted = true; 
         this.state.gameState = "NEXT";
         this.props.setUserState(null);
         this.props.setGameState(true);
@@ -77,6 +77,7 @@ class GameManager extends Component {
         }
 
         let buttonClass = this.state.gameState === "START" ? "button start-button" : "button next-button";
+
         return (
           <div>
             <a className={buttonClass} onClick={() => this.startGame()}>{this.state.gameState}</a>

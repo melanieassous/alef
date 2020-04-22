@@ -65,7 +65,9 @@ class UserAnswer extends Component {
         else if (this.props.didUserWin === false) {
             result = <div className="user-lost">Nope :( Try again!</div>
         }
+
         let value = this.props.userInput === "" ? this.props.userInput : this.state.input;
+        
         let answerUI;
         if (this.props.gameState) {
             answerUI =             
