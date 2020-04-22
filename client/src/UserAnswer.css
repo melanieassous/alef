@@ -1,0 +1,36 @@
+ .input-elements {
+    display: inline-flex;
+    position: relative;
+    padding-bottom: 10px;
+    padding-right: 10px;
+ }
+
+ .user-answer {
+   border-radius: 5px;
+   height: 30px;
+   text-align: center;
+   position: relative;
+   background: white;
+   border-color: darkgreen;
+   border: 0.2em solid #006400;
+ }
+
+ .user-won {
+  background: green;
+  width: 80px;
+  text-align: center;
+  padding: 6px;
+  border-radius: 10px;
+  position: relative;
+  display: inline-table;
+ }
+
+ .user-lost {
+  background: red;
+  width: 130px;
+  text-align: center;
+  padding: 6px;
+  border-radius: 10px;
+  position: relative;
+  display: inline-table;
+ }

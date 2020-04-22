@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import RandomGenerator from './RandomGenerator.js';
-import UserInput from "./UserInput.js"
-import { Route, Switch } from 'react-router-dom';
+import GameManager from './GameManager.js';
+import UserAnswer from "./UserAnswer.js"
 import "./App.css"
 
 class App extends Component {
@@ -9,24 +8,55 @@ class App extends Component {
     super()
 
     this.state = {
-      currentTopic: ""
+      currentTopic: "",
+      currentLetter: "",
+      userInput: "",
+      didUserWin: null,
+      gameState: null
     }
 
     this.updateCurrentTopic = this.updateCurrentTopic.bind(this)
+    this.updateCurrentLetter = this.updateCurrentLetter.bind(this)
+    this.updateUserInput = this.updateUserInput.bind(this)
+    this.setUserState = this.setUserState.bind(this)
+    this.setGameState = this.setGameState.bind(this)
   }
 
   updateCurrentTopic(currentTopic)  {
-    this.setState(state => ({ currentTopic: currentTopic }));
+    this.setState(state => ({ currentTopic: currentTopic })); //need?
+  }
+
+  updateCurrentLetter(currentLetter) {
+    this.setState(state => ({ currentLetter: currentLetter})) //need?
+  }
+
+  updateUserInput(userInput) {
+    this.setState(state => ({ userInput: userInput})) //need?
+  }
+
+  setUserState(userState) {
+    this.setState(state => ({ didUserWin: userState})) 
+  }
+
+  setGameState(gameState) {
+    if (gameState === true) {
+      this.setState(state => ({ userInput: ""}))
+    }
+    this.setState(state => ({ gameState: gameState}))
   }
 
   render() {
     return (
-      <div className="main-page">
       <div className="main-ui">
-          <RandomGenerator maxAmountOfLetters={15} intervalDuration={50} updateCurrentTopic={this.updateCurrentTopic}/>
-          <UserInput currentTopic={this.state.currentTopic}/>
-      </div>
-      </div>
+          <GameManager maxAmountOfLetters={15} intervalDuration={50} updateCurrentTopic={this.updateCurrentTopic}
+           updateCurrentLetter={this.updateCurrentLetter} userInput={this.state.userInput} setUserState={this.setUserState}
+           setGameState={this.setGameState}/>
+          <div className="bottom-section">
+            <UserAnswer setUserState={this.setUserState} didUserWin={this.state.didUserWin} updateUserInput={this.updateUserInput}
+             currentLetter={this.state.currentLetter} currentTopic={this.state.currentTopic} gameState={this.state.gameState}
+             userInput = {this.state.userInput}/>
+          </div>
+      </div> 
     );
   }
 }
