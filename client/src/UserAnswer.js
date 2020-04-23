@@ -8,7 +8,7 @@ class UserAnswer extends Component {
 
         this.state = {
             input: "",
-            needsShaking: true 
+            needsAnimation: true 
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleClick = this.handleClick.bind(this)
@@ -40,7 +40,7 @@ class UserAnswer extends Component {
         else {
             this.props.setUserState(false);
         }
-        this.setState({ needsShaking: true})
+        this.setState({ needsAnimation: true})
       }
 
       keyPressed(event) {
@@ -62,13 +62,13 @@ class UserAnswer extends Component {
     render() {
         let result;
         if (this.props.didUserWin === true) {
-            result = <div className={this.state.needsShaking ? "user-won shaking-div" : "user-won"}>NICE!</div> 
+            result = <div className={this.state.needsAnimation ? "user-won balldrop-div" : "user-won"}>NICE!</div> 
         }
         else if (this.props.didUserWin === false) {
-            result = <div className={this.state.needsShaking ? "user-lost shaking-div" : "user-lost"}>Nope :( Try again!</div>
+            result = <div className={this.state.needsAnimation ? "user-lost shaking-div" : "user-lost"}>Nope :( Try again!</div>
         }
-        if (this.state.needsShaking) {
-            setTimeout(() => { this.setState({ needsShaking: false})}, 500)
+        if (this.state.needsAnimation) {
+            setTimeout(() => { this.setState({ needsAnimation: false})}, 500)
         }
         let value = this.props.userInput === "" ? this.props.userInput : this.state.input;
 
