@@ -8,7 +8,7 @@ class ServerCommunicator extends Component{
     }
     
     static checkIfCountry(userInput) {
-        return fetch("http://localhost:5000/isCountry?countryName=" + userInput)
+        return fetch("https://alefgame.herokuapp.com/isCountry?countryName=" + userInput)
         .then(res => res.json())
         .then(inputJson => {
             return inputJson
