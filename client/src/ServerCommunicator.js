@@ -16,7 +16,7 @@ class ServerCommunicator extends Component{
     }
 
     static checkIfCity(userInput) {
-        return fetch("http://localhost:5000/isCity?cityName=" + userInput)
+        return fetch("https://alefgame.herokuapp.com/isCity?cityName=" + userInput)
         .then(res => res.json())
         .then(inputJson => 
             {
