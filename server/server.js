@@ -7,7 +7,14 @@ const app = express();
 const port = process.env.PORT || 5000;
 app.use(bodyParser.json());
 
-app.use(cors())
+const corsOptions = {
+    origin: 'https://alefgame.herokuapp.com',
+    optionsSuccessStatus: 200
+  }
+app.use(cors(corsOptions));
+app.options('*', cors());
+
+//app.use(cors())
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('/*', (req, res) => {
