@@ -23,15 +23,15 @@ class App extends Component {
   }
 
   updateCurrentTopic(currentTopic)  {
-    this.setState(state => ({ currentTopic: currentTopic })); //need?
+    this.setState(state => ({ currentTopic: currentTopic }));
   }
 
   updateCurrentLetter(currentLetter) {
-    this.setState(state => ({ currentLetter: currentLetter})) //need?
+    this.setState(state => ({ currentLetter: currentLetter}))
   }
 
   updateUserInput(userInput) {
-    this.setState(state => ({ userInput: userInput})) //need?
+    this.setState(state => ({ userInput: userInput}))
   }
 
   setUserState(userState) {
@@ -47,7 +47,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className="main-ui">
+      <div>
+        <header className="game-header"><span className="game-title">ALEF</span><span className="author-name">By Melanie</span></header>
+        <div className="main-ui">
           <GameManager maxAmountOfLetters={15} intervalDuration={50} updateCurrentTopic={this.updateCurrentTopic}
            updateCurrentLetter={this.updateCurrentLetter} userInput={this.state.userInput} setUserState={this.setUserState}
            setGameState={this.setGameState}/>
@@ -56,7 +58,8 @@ class App extends Component {
              currentLetter={this.state.currentLetter} currentTopic={this.state.currentTopic} gameState={this.state.gameState}
              userInput = {this.state.userInput}/>
           </div>
-      </div> 
+        </div> 
+      </div>
     );
   }
 }

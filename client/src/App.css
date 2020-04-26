@@ -1,3 +1,27 @@
+.game-header {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  background-color: antiquewhite;
+  opacity: 0.8;
+}
+
+.game-title {
+  font-size: 40px;
+  font-family: monospace;
+  color: black;
+  position: relative;
+  left: 20px;
+}
+
+.author-name {
+  color: black;
+  font-size: 15px;
+  left: 22px;
+  position: relative;
+  font-family: cursive;
+}
+
 .main-ui {
   display: block;
   position: relative;
