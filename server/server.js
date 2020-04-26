@@ -31,6 +31,7 @@ cities.filter(city => {
 })
 
 app.get('/isCountry', (req, res) => {
+    console.log(("HIIICTRY"));
     let countryName = req.query.countryName;
     res.send({"isCountry" : countries.includes(countryName.toLocaleLowerCase())})
 });
