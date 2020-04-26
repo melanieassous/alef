@@ -11,9 +11,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "cd client && yarn start",
     "server": "nodemon ./server/server.js",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-    "start": "nodemon ./server/server.js"
-    },
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
